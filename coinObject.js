@@ -1,4 +1,5 @@
 const stringOutput = document.getElementById("stringOutput");
+const imageOutput = document.getElementById("imageOutput");
 
 const coin = {
     state: 0,
@@ -28,36 +29,32 @@ const coin = {
     }
 };
 
-function flipCoin20Times() {
-    let results = []
+function display20Flips() {
+    let results = [];
+
     for(let index = 0; index < 20; index++) {
         coin.flip();
         results.push(coin.toString())
+        let div = document.createElement("div");
+        div.innerHTML = coin.toString()
+        stringOutput.appendChild(div)
     }
-    console.log(results)
     return results;
 }
 
-function displayStringResults(array) {
-    
-    for (let i = 0; i < array.length; i++) {
-        let div = document.createElement("div")
-        div.innerHTML = array[i]
-        stringOutput.appendChild(div)
-    }
-}
 
-function displayImageResults(array) {
-    let imageOutput = document.getElementById("imageOutput")
-    for (let i = 0; i < array.length; i++) {
+
+function display20Images() {
+    let results = [];
+
+    for (let i = 0; i < 20; i++) {
         coin.flip()
         let image = coin.toHTML()
         imageOutput.appendChild(image)
     }
+    return results;
 }
 
-let results = flipCoin20Times();
-
-// displayStringResults(results);
-displayImageResults(results)
+display20Flips();
+display20Images();
 
