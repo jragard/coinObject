@@ -1,3 +1,5 @@
+
+
 const stringOutput = document.getElementById("stringOutput");
 const imageOutput = document.getElementById("imageOutput");
 
@@ -30,6 +32,7 @@ const coin = {
 };
 
 function display20Flips() {
+
     let results = [];
 
     for(let index = 0; index < 20; index++) {
@@ -55,6 +58,5 @@ function display20Images() {
     return results;
 }
 
-display20Flips();
-display20Images();
+
 
