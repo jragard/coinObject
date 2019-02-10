@@ -1,8 +1,3 @@
-
-
-const stringOutput = document.getElementById("stringOutput");
-const imageOutput = document.getElementById("imageOutput");
-
 const coin = {
     state: 0,
     flip: function() {
@@ -37,10 +32,10 @@ function display20Flips() {
 
     for(let index = 0; index < 20; index++) {
         coin.flip();
-        results.push(coin.toString())
+        results.push(coin.toString());
         let div = document.createElement("div");
-        div.innerHTML = coin.toString()
-        stringOutput.appendChild(div)
+        div.innerHTML = coin.toString();
+        document.body.appendChild(div);
     }
     return results;
 }
@@ -51,12 +46,18 @@ function display20Images() {
     let results = [];
 
     for (let i = 0; i < 20; i++) {
-        coin.flip()
-        let image = coin.toHTML()
-        imageOutput.appendChild(image)
+        coin.flip();
+        let image = coin.toHTML();
+        let div = document.createElement("div");
+        div.appendChild(image);
+        document.body.appendChild(div);
     }
     return results;
 }
+
+display20Flips();
+display20Images();
+
 
 
 
